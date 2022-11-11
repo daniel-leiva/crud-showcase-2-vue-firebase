@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="descripcion" content="Página de servicio de los vengadores, contiene información general sobre estos y sus servicios, puedes contactarte con ellos mediante un formulario de contacto.">
+    <meta name="etiquetas" content="vengadores, villanos, gemas del infinito">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!--Scripts Vuejs-->
+    <script src="vue-router.js"></script>
+    <script src="vue.js"></script>
+    <script src="gtag.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+    <title>Vengadores - Página Oficial </title>
+</head>
+<body>
+    
+    <div class="container-fluid text-center" id="app"><!--Contenedor APP-->
+
+      <div class="row justify-content-md-center"><!--Fila Principal-->
+
+        <div class="row">
+
+          <nav class="navbar navbar-dark navbar-expand-lg bg-danger">
+            <div class="container-fluid">
+              <router-link class="navbar-brand" to="/">Inicio</router-link>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <router-link class="nav-link" to="quienes-somos">¿Quiénes Somos?</router-link>
+                  </li>
+                  <li>
+                    <router-link class="nav-link" to="vengadores">Vengadores</router-link>
+                  </li>
+                  <li>
+                    <router-link class="nav-link" to="gemas_infinito">Gemas del Infinito</router-link>
+                  </li>
+                  <li>
+                    <router-link class="nav-link" to="villanos">Villanos</router-link>
+                  </li>
+                  <li>
+                    <router-link class="nav-link" to="contacto">Contacto</router-link>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="flex-row-reverse">
+                <div class="p-2">
+                    <img src="imagenes/logo-avengers.png" alt="">
+                </div>
+              </div>
+              
+            </div>
+          </nav>
+
+        </div>
+        <div class="row">
+
+          <div class="bg-primary text-center pb-3 pt-3">
+            <router-view></router-view>
+          </div>
+          
+        </div>
+
+      </div><!-- Fin Fila Principal-->
+
+    </div><!--Final Contenedor APP-->
+
+<!--Componentes-->
+<script src="./componentes/formulario-contacto.js"></script>
+<script src="./componentes/crear_vengador.js"></script>
+<script src="./componentes/cambiar_vengador.js"></script>
+<script src="./componentes/crear_gema.js"></script>
+<script src="./componentes/cambiar_gema.js"></script>
+<script src="./componentes/crear_villano.js"></script>
+<script src="./componentes/cambiar_villano.js"></script>
+
+
+<!--Vistas-->
+<script src="./vistas/inicio.vue.js"></script>
+<script src="./vistas/quienes-somos.vue.js"></script>
+<script src="./vistas/vengadores.vue.js"></script>
+<script src="./vistas/gemas_infinito.vue.js"></script>
+<script src="./vistas/villanos.vue.js"></script>
+<script src="./vistas/contacto.vue.js"></script>
+
+<!--Instancia Vuejs-->
+<script type="text/javascript">
+    Vue.use(VueRouter); //Indicamos que Vue use VueRouter
+
+        var routes = [
+            { path: '/', component: Inicio }, //Creamos una varible routes que contiene el path y su respectivo componente
+            { path: '/quienes-somos', component: QuienesSomos },
+            { path: '/vengadores', component: Vengadores, name: "Vengadores" },
+            { path: '/gemas_infinito', component: GemasInfinito, name: "GemasInfinito" },
+            { path: '/villanos', component: Villanos, name: "Villanos" },
+            { path: '/contacto', component: Contacto, name: "contacto" },
+            { path: '/crear_vengador', component: CrearVengador, name:"crear_vengador" },
+            { path: '/cambiar_vengador', component: CambiarVengador, name:"cambiar_vengador" },
+            { path: '/crear_gema', component: CrearGema, name:"crear_gema" },
+            { path: '/cambiar_gema', component: CambiarGema, name:"cambiar_gema" },
+            { path: '/crear_villano', component: CrearVillano, name:"crear_gema" },
+            { path: '/cambiar_villano', component: CambiarVillano, name:"cambiar_villano" }
+        ];
+        var router = new VueRouter({ //Creamos una variable llamada router, que es una instancia de VueRouter
+            routes: routes,
+        });
+
+        var app = new Vue({
+            el: '#app',
+            router, router //creamos el router dentro de la variable app
+        });
+</script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
