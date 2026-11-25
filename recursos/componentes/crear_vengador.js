@@ -92,7 +92,7 @@ var CrearVengador = Vue.component('CrearVengador', {
             crear_vengador: function(nombre, alias, superpoder, trabajo_actual, telefono, email, url_imagen){
                 if (!(Array.isArray(this.errores) && this.errores.length)) {
                 let self = this;
-                axios.post('https://tu-proyecto-default-rtdb.firebaseio.com/vengadores.json',{
+                axios.post('https://tu-proyecto-default-rtdb.firebaseio.com//vengadores.json',{
                     nombre:nombre,
                     alias:alias,
                     superpoder:superpoder,

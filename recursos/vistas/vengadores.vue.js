@@ -49,7 +49,7 @@ var Vengadores = Vue.component('Vengadores',
     },
     mounted() {
         let self = this;
-        fetch('https://tu-proyecto-default-rtdb.firebaseio.com/vengadores.json')
+        fetch('https://tu-proyecto-default-rtdb.firebaseio.com//vengadores.json')
         .then(r => r.json())
         .then(json => {
             self.vengadores = json;
@@ -58,7 +58,7 @@ var Vengadores = Vue.component('Vengadores',
     methods: { //Inician los Métodos
         eliminar_vengador: function(id){
             let self = this;
-            axios.delete('https://tu-proyecto-default-rtdb.firebaseio.com/vengadores/'+id+'.json')
+            axios.delete('https://tu-proyecto-default-rtdb.firebaseio.com//vengadores/'+id+'.json')
             .then((response) => {
                 alert("El Vengador Fue Eliminado de la Lista");
                 location.reload();

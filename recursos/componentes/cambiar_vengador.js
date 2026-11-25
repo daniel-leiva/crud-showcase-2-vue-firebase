@@ -60,7 +60,7 @@ var CambiarVengador = Vue.component('CambiarVengador', {
     </div>`, // Aca termina nuestro Template
     mounted() {
         let self = this;
-            fetch('https://tu-proyecto-default-rtdb.firebaseio.com/vengadores/'+this.$route.params.id+'.json')
+            fetch('https://tu-proyecto-default-rtdb.firebaseio.com//vengadores/'+this.$route.params.id+'.json')
             .then(r => r.json())
             .then(json => {
                 self.nombre = json.nombre,
@@ -100,7 +100,7 @@ var CambiarVengador = Vue.component('CambiarVengador', {
         cambiar_vengador: function(nombre, alias, superpoder, trabajo_actual, telefono, email, url_imagen){
             if (!(Array.isArray(this.errores) && this.errores.length)) {
             let self = this;
-            axios.put('https://tu-proyecto-default-rtdb.firebaseio.com/vengadores/'+ this.$route.params.id +'.json',{
+            axios.put('https://tu-proyecto-default-rtdb.firebaseio.com//vengadores/'+ this.$route.params.id +'.json',{
                 nombre:nombre,
                 alias:alias,
                 superpoder:superpoder,
